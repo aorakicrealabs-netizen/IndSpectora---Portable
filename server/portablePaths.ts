@@ -60,7 +60,11 @@ export function readSeaAssetBuffer(assetKey: string): Buffer | null {
 }
 
 export function getPortableExecutablePath(): string {
-  return path.resolve(process.cwd(), 'dist-portable', 'IndSpectora-Portable.exe');
+  const rootExe = path.resolve(process.cwd(), 'IndSpectora-Portable.exe');
+  if (fs.existsSync(rootExe)) return rootExe;
+  const distExe = path.resolve(process.cwd(), 'dist-portable', 'IndSpectora-Portable.exe');
+  if (fs.existsSync(distExe)) return distExe;
+  return rootExe;
 }
 
 export function isPortableExecutableReady(): boolean {

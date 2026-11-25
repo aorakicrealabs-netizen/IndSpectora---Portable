@@ -14,10 +14,9 @@ const NODE_WIN_ZIP_URL = `https://nodejs.org/dist/${NODE_WIN_VERSION}/${NODE_WIN
 
 const cacheDir = path.join(rootDir, '.portable-cache');
 const tmpDir = path.join(rootDir, '.portable-tmp');
-const outDir = path.join(rootDir, 'dist-portable');
 const distDir = path.join(rootDir, 'dist');
 const cachedWinExe = path.join(cacheDir, `node-${NODE_WIN_VERSION}-win-x64.exe`);
-const outExe = path.join(outDir, 'IndSpectora-Portable.exe');
+const outExe = path.join(rootDir, 'IndSpectora-Portable.exe');
 
 function collectFilesRecursive(dir, basePrefix = '') {
   const results = {};
@@ -60,7 +59,6 @@ function ensureWindowsNodeBinary() {
 async function main() {
   fs.rmSync(tmpDir, { recursive: true, force: true });
   fs.mkdirSync(tmpDir, { recursive: true });
-  fs.mkdirSync(outDir, { recursive: true });
 
   console.log('1/5 Building React frontend (dist/)...');
   execFileSync('npm', ['run', 'build'], { cwd: rootDir, stdio: 'inherit' });

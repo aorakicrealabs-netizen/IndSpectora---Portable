@@ -177,25 +177,26 @@ Users can hold **multiple roles simultaneously** (e.g., `Approver + User` or `Ad
 
 IndSpectora starts cleanly with **zero mock operational data** and automatically initializes `./data/indspectora.db` on first boot. Admins can optionally load sandbox sample records anytime via **Settings → Developer Mode**.
 
-### Option 1: Windows Portable `.exe` (No Admin Rights, No NPM, No Docker Required)
+### Option 1: Windows Portable `.exe` (Included in Code · No Admin Rights, No NPM, No Docker Required)
 
 Use this option on **Windows 10 / Windows 11 (x64)** when installing Node.js, NPM, or Docker Desktop is blocked by Administrator privileges:
 
-1. **Download `IndSpectora-Portable.exe`**:
-   - From a running IndSpectora instance, click **Download Portable (.exe)** on the sign-in screen or under **Settings → Workspace & Backup → Windows Portable Executable (.exe)**.
-   - Or build it from source on any machine with Node.js v22+:
+1. **Locate `IndSpectora-Portable.exe`**:
+   - **`IndSpectora-Portable.exe` is already included in the root folder** of this codebase—simply pull or download the repository ZIP and open it directly.
+   - Or download it from a running IndSpectora instance (**Download Portable (.exe)** on the sign-in screen or **Settings → Workspace & Backup**).
+   - *(Optional)* Rebuild it anytime from source on Node.js v22+ via:
      ```bash
      npm install
      npm run build:portable
-     # Output: dist-portable/IndSpectora-Portable.exe
+     # Output: ./IndSpectora-Portable.exe
      ```
-2. **Place in a Dedicated User Folder**: Move `IndSpectora-Portable.exe` to a normal user folder such as `Documents\IndSpectora\IndSpectora-Portable.exe` (no installation or Administrator elevation required).
+2. **Optional Clean Folder**: You can run `./IndSpectora-Portable.exe` directly from the downloaded folder, or copy `IndSpectora-Portable.exe` alone into a separate folder (e.g. `Documents\IndSpectora\IndSpectora-Portable.exe`) if you want a fresh empty `./data/` database.
 3. **Run Directly**:
    - Double-click `IndSpectora-Portable.exe` (if Windows Defender SmartScreen prompts on an unsigned portable binary, click **More info → Run anyway** — no Admin password needed).
    - It automatically starts the local IndSpectora server (port `3000`, or the next free port), opens `http://localhost:3000` in your browser, and stores `./data/indspectora.db` + `./data/uploads/` in the `data` folder right next to `IndSpectora-Portable.exe`.
 4. **Stop & Back Up**:
    - Keep the console window open while working; press `Ctrl+C` or close the console window to stop cleanly.
-   - To move to another PC, copy the `IndSpectora-Portable.exe` + `data\` folder or export via **Settings → Workspace & Backup → Download JSON Backup**.
+   - To move to another PC, copy `IndSpectora-Portable.exe` + the `data\` folder or export via **Settings → Workspace & Backup → Download JSON Backup**.
 
 ### Option 2: Direct Node.js (`v22.18+` Recommended)
 
