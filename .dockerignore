@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-portable
+.portable-cache
+.portable-tmp
+data/*.db
+data/*.db-wal
+data/*.db-shm
+.git
+.env

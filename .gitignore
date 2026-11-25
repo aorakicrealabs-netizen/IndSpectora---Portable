@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-portable/
+.portable-cache/
+.portable-tmp/
+.env
+data/
+*.db
+*.db-wal
+*.db-shm
+.DS_Store
