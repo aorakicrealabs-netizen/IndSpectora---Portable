@@ -12,8 +12,9 @@ IndSpectora-Portable.exe
 *.tsbuildinfo
 bun.lockb
 /.nuxt
+node_modules/
 dist/
 /.output
-node_modules/
 .portable-cache/
 .portable-tmp/
+.DS_Store

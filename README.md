@@ -245,6 +245,17 @@ IndSpectora ships with **zero hardcoded accounts or default passwords**:
 
 ---
 
+## Security Guidelines
+
+- **Do not commit `./data/`**. The database contains user accounts, session tokens, and uploaded metadata. `.gitignore` must exclude `data/` and `*.db`. If a database was already committed, remove it and purge git history.
+- **Ship an empty database or build on first run.** IndSpectora initializes `./data/indspectora.db` automatically on first boot; never distribute a database with seeded accounts or live sessions.
+- **Protect the `./data/` folder with OS-level permissions.** Anyone who can read it can copy the DB and impersonate users. Keep it on a local, non-shared drive; never sync it to cloud storage.
+- **Back up via the app.** Use Settings → Workspace & Backup → Download JSON Backup (sanitized: no password hashes or tokens) or copy the whole `data/` folder while the app is stopped.
+- **Verify the portable binary.** `IndSpectora-Portable.exe` is an official Node.js SEA binary. Rebuild from source with `npm run build:portable` rather than trusting third-party mirrors; pin and verify the downloaded Node zip by SHA256.
+- **Sessions.** Change passwords to invalidate other sessions. Tokens are stored server-side; treat the DB as a secret.
+- **Uploads.** Photos in `./data/uploads/` are not encrypted; rely on OS permissions.
+- **Code signing.** For public distribution, sign the `.exe` to avoid SmartScreen warnings and tampering.
+
 ## Further Documentation
 
 - [`DEPLOY.md`](./DEPLOY.md) — Full **AI-Agent Localhost Deployment & First-Setup Runbook** (Node.js + Docker Compose, automated verification script, and explicit User Intervention Gates).
