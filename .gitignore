@@ -1,8 +1,19 @@
-node_modules/
+# IndSpectora Portable - Gitignore
+data/
+*.db
+*.db-wal
+*.db-shm
+*.log
+.env
+.env.local
+IndSpectora-Portable.exe
+*.backup
+*.zip
+*.tsbuildinfo
+bun.lockb
+/.nuxt
 dist/
+/.output
+node_modules/
 .portable-cache/
 .portable-tmp/
-.env
-data/*.db-wal
-data/*.db-shm
-.DS_Store
